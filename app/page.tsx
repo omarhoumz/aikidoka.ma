@@ -38,7 +38,7 @@ export default async function Home() {
 
                 const dans = []
                 if (mDans?.[0]?.name) {
-                  dans.push(`${mDans?.[0]?.name} National`)
+                  dans.push(`${mDans?.[0]?.name} national`)
                 }
                 if (aDans?.[0]?.name) {
                   dans.push(`${aDans?.[0]?.name} AIKIKAI`)
