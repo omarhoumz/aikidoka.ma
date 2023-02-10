@@ -1,0 +1,15 @@
+{
+  "cSpell.words": [
+    "Aikidō",
+    "aikidoka",
+    "aikidokas",
+    "aikikai",
+    "Akidokas",
+    "birthdate",
+    "contentful",
+    "dans",
+    "deathdate"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}
