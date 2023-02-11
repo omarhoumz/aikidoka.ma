@@ -1,13 +1,14 @@
 import cx from 'classnames'
 
 import type { AIKIDOKA_TYPE, DanType } from '@/lib/api/aikidoka'
-import { getAllAkidokasForHome } from '@/lib/api/aikidoka'
+import { getFeaturedAkidokas } from '@/lib/api/aikidoka'
 
 const layoutInnerClassName = 'mx-auto w-full max-w-7xl px-3'
 
 export default async function Home() {
+  const isPreview = process.env.NODE_ENV === 'development'
   const aikidokas =
-    ((await getAllAkidokasForHome(true)) as [AIKIDOKA_TYPE]) ?? []
+    ((await getFeaturedAkidokas(isPreview)) as [AIKIDOKA_TYPE]) ?? []
 
   return (
     <>
@@ -27,7 +28,7 @@ export default async function Home() {
               AIKIDOKA of Morocco (5th dan and up)
             </SectionHeader>
 
-            <section className='grid gap-4 md:grid-cols-3'>
+            <section className='grid gap-4 md:grid-cols-2 xl:grid-cols-3'>
               {aikidokas.map((aikidoka) => {
                 const filterDans = (dan: DanType) => !!dan.name
 
@@ -50,7 +51,7 @@ export default async function Home() {
                     className='flex border-2 border-stone-800'
                   >
                     {aikidoka.avatar.url ? (
-                      <picture className='h-48 w-48 border-r-2 border-stone-800 p-4'>
+                      <picture className='h-36 w-36 flex-shrink-0 border-r-2 border-stone-800 p-4 md:h-48 md:w-48'>
                         <source
                           srcSet={`${aikidoka.avatar.url}?w=192&h=192&fm=webp`}
                           type='image/webp'

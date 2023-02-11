@@ -44,10 +44,10 @@ dansCollection {
 }
 `
 
-export async function getAllAkidokasForHome(preview: boolean) {
+export async function getFeaturedAkidokas(preview: boolean) {
   const entries = await fetchGraphQL(
     `query {
-      aikidokaCollection(order: name_ASC, preview: ${
+      aikidokaCollection(order: name_ASC, where: { featured: true }, preview: ${
         preview ? 'true' : 'false'
       }) {
         items {
