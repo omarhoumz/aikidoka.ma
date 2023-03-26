@@ -20,5 +20,6 @@ function getAikidokas() {
 
 export default async function Aikidokas() {
   const aikidokas: AikidokaType[] = await getAikidokas()
+
   return <AikidokaScreens aikidokas={aikidokas} />
 }

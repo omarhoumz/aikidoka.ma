@@ -4,7 +4,7 @@ import AdminScreenLayout from '../admin-screen-layout'
 import { AikidokaType } from './aikidoka-type'
 
 export default function AikidokaScreens({
-  aikidokas,
+  aikidokas = [],
 }: {
   aikidokas: AikidokaType[]
 }) {
