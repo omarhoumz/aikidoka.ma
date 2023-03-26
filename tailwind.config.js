@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [addVariablesForColors],
+  plugins: [addVariablesForColors, require('@tailwindcss/forms')],
 }
 
 function flattenColorPalette(colors) {

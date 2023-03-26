@@ -2,7 +2,7 @@ import { IBM_Plex_Sans } from '@next/font/google'
 import './globals.css'
 
 const inter = IBM_Plex_Sans({
-  weight: ['400', '500', '600', '700'],
+  weight: ['200', '400', '500', '600', '700'],
   subsets: ['latin'],
 })
 
