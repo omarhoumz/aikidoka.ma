@@ -1,24 +1,13 @@
-import { FirebaseApp } from 'firebase/app'
-import { collection, getDocs, getFirestore } from 'firebase/firestore'
 import Link from 'next/link'
 
-import clientApp from 'src/firebase/client-app'
 import AdminScreenLayout from '../admin-screen-layout'
-import { AikidokaType, aikidokasCollection } from './aikidoka-type'
+import { AikidokaType } from './aikidoka-type'
 
-const firestore = getFirestore(clientApp as FirebaseApp)
-
-function getAikidokas() {
-  return getDocs(collection(firestore, aikidokasCollection)).then((query) => {
-    return query.docs.map((doc) => {
-      return { id: doc.id, ...doc.data() } as AikidokaType
-    })
-  })
-}
-
-export default async function AikidokaScreens() {
-  const aikidokas: AikidokaType[] = await getAikidokas()
-
+export default function AikidokaScreens({
+  aikidokas,
+}: {
+  aikidokas: AikidokaType[]
+}) {
   return (
     <AdminScreenLayout title='Aikidokas'>
       <div className='mb-6'>
