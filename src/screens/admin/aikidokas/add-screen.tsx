@@ -11,6 +11,7 @@ import {
 } from 'firebase/firestore'
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import {
   DetailedHTMLProps,
   InputHTMLAttributes,
@@ -60,7 +61,7 @@ async function uploadAvatar(avatar: File, avatarName: string) {
 }
 
 export default function AddAikidokaScreen() {
-  // const router = useRouter()
+  const router = useRouter()
 
   const { control, register, handleSubmit } = useForm<AikidokaFormType>({
     defaultValues: {
@@ -79,8 +80,7 @@ export default function AddAikidokaScreen() {
   async function onSubmit(data: AikidokaFormType) {
     await addAikidoka(data)
 
-    console.log('DONE')
-    // router.push('/admin/aikidokas')
+    router.push('/admin/aikidokas')
   }
 
   return (
